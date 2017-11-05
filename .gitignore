@@ -1,0 +1,10 @@
+# executable
+x
+
+# objects
+*.o
+
+# hidden...
+.*
+# ... except this file
+!.gitignore
