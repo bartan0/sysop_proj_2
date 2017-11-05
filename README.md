@@ -18,11 +18,11 @@ $ ./x <n_hunters> <n_cookers> <n_bag> <n_food> <n_days>
 
 where:
 
-	* <n_hunters> - initial number of hunters
-	* <n_cookers> - initial number of cookers
-	* <n_bag> - initial size of bag (number of hunted animals)
-	* <n_food> - initial number of food units
-	* <n_days> - number of days to simulate
+* <n_hunters> - initial number of hunters
+* <n_cookers> - initial number of cookers
+* <n_bag> - initial size of bag (number of hunted animals)
+* <n_food> - initial number of food units
+* <n_days> - number of days to simulate
 
 It's also possible to build and run the program with default arguments values with one command:
 
