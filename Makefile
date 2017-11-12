@@ -1,6 +1,6 @@
 cc = cc
-c_opt = -Wall -Wpedantic -Werror
-l_opt = 
+c_opt = -std=gnu99 -Wall -Wpedantic -Werror -DDEBUG -DTERM_CODES
+l_opt = -lpthread
 
 prog = x
 obj = main.o
@@ -13,7 +13,7 @@ $(prog): $(obj)
 	$(cc) $(l_opt) -o$(prog) $(obj)
 
 main.o: main.c
-	$(cc) -c $(c_opt) main.c
+	$(cc) -c $(c_opt) $(opt_test) main.c
 
 run: all
 	./$(prog)
@@ -21,5 +21,7 @@ run: all
 clean:
 	rm -rf $(obj)
 
-distclean: clear
+distclean: clean
 	rm -rf $(prog)
+
+rebuild: distclean all
