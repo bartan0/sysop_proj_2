@@ -6,6 +6,13 @@
 #include <pthread.h>
 
 // --------------------------------
+// config
+// --------------------------------
+
+#define DEF_N_DAYS 365
+#define DEF_SLEEP_BASE 20
+
+// --------------------------------
 // optional features
 // --------------------------------
 
@@ -164,10 +171,10 @@ void *cooker(void *arg)
 
 int main(int argc, const char **argv)
 {
-	int n_days = atoi(argv[5]);
+	int n_days = (argc > 5) ? atoi(argv[5]) : DEF_N_DAYS;
 	int n_hunted = atoi(argv[3]), n_food = atoi(argv[4]);
 	int n_hunters = atoi(argv[1]), n_cookers = atoi(argv[2]);
-	useconds_t sleep_base = atoi(argv[6])*1000;
+	useconds_t sleep_base = ((argc > 6) ? atoi(argv[6]) : DEF_SLEEP_BASE)*1000;
 
 	srand(time(NULL));
 
@@ -201,7 +208,7 @@ int main(int argc, const char **argv)
 		i_cookers += (ret == TIME_ELAPSED) ? 1 : 0;
 	}
 
-	log("\n#Hunters survived: %d/%d\n#Cookers survived: %d/%d\n#Survived total: %d/%d",
+	printf("\n#Hunters survived: %d/%d\n#Cookers survived: %d/%d\n#Survived total: %d/%d\n",
 		i_hunters,
 		n_hunters,
 		i_cookers,

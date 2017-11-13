@@ -1,11 +1,13 @@
 cc = cc
-c_opt = -std=gnu99 -Wall -Wpedantic -Werror -DDEBUG -DTERM_CODES
+c_opt = -std=gnu99 -Wall -Wpedantic -Werror -DDEBUG
 l_opt = -lpthread
 
 prog = x
 obj = main.o
 
 main_h = 
+
+exmpl_args = 20 9 8 30 365
 
 all: $(prog)
 
@@ -16,7 +18,7 @@ main.o: main.c
 	$(cc) -c $(c_opt) $(opt_test) main.c
 
 run: all
-	./$(prog)
+	./$(prog) $(exmpl_args)
 
 clean:
 	rm -rf $(obj)
